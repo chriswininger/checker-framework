@@ -1026,6 +1026,9 @@ public abstract class CFAbstractTransfer<
    * @return whether to perform whole-program inference
    */
   private boolean shouldPerformWholeProgramInference(Tree tree, Element elt) {
+    VariableElement elt = TreeUtils.lhsElementFromTree(lhsTree);
+    VariableElement elt = (VariableElement) TreeUtils.elementFromTree(lhsTree, elements);
+    
     return shouldPerformWholeProgramInference(tree)
         && !analysis.checker.shouldSuppressWarnings(elt, "");
   }
